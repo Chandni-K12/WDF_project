@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - E-Library</title>
+ <style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f8ff;
+    color: #333;
+  }
+
+  h1 {
+    margin: 0;
+    padding: 20px;
+    background: #007bff;
+    color: #fff;
+    text-align: center;
+  }
+
+  a p {
+    text-align: right;
+    margin: 10px 20px;
+    color: #007bff;
+    font-weight: bold;
+  }
+
+  .contact-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .contact-container h1, 
+  .contact-info h2, 
+  .social-links h2 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+  }
+
+  p { margin: 10px 0; line-height: 1.6; }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  input, textarea, button {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+  }
+
+  input, textarea {
+    border: 1px solid #ccc;
+  }
+
+  button {
+    background: #4c9cf1;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background: #4c9ef1;
+  }
+
+  a {
+    color: #4c9ef1;
+    font-weight: bold;
+    text-decoration: none;
+    margin-right: 15px;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+  <h1>E-Library FAQ</h1>
+
+  <a href="index.html"><p>Home</p></a>
+
+  <div class="contact-container">
+    <h1>Contact Us</h1>
+
+    <p>If you have any questions, issues, or feedback, feel free to reach out to us using the form below or through the contact information provided.</p>
+
+    <form>
+      <input type="text" placeholder="Your Name" required><br>
+      <input type="email" placeholder="Your Email" required><br>
+      <input type="text" placeholder="Subject"><br>
+      <textarea rows="5" placeholder="Your Message" required></textarea><br>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="contact-info">
+      <h2>Other Ways to Reach Us</h2>
+      <p><strong>Email:</strong> support@elibrary.com</p>
+      <p><strong>Phone:</strong> +91-12345-67890</p>
+      <p><strong>Support Hours:</strong> Monday to Friday, 9:00 AM – 6:00 PM</p>
+      <p><strong>Address:</strong> E-Library Services, ABC University, India – 110001</p>
+    </div>
+
+    <div class="social-links">
+      <h2>Follow Us</h2>
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+      <a href="#">LinkedIn</a>
+    </div>
+
+    <p style="margin-top: 30px;">Looking for help? Visit our <a href="faq.html">FAQ page</a>.</p>
+  </div>
+
+</body>
+</html>

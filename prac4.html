@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Portal Page</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        .faq {
+            margin: 10px 0;
+            border: 1px solid #e1f0fa;
+            border-radius: 4px;
+        }
+        .faq-question {
+            background: #e1f0fa; 
+            padding: 10px;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            border: none;
+            border-radius: 3px;
+        }
+        .faq-question:hover {
+            background: #c9e4f7; 
+        }
+        .faq-answer {
+            padding: 10px;
+            display: none;
+            background: #f8fbfd; 
+        }
+        
+        .slider {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            border: 1px solid #e1f0fa;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border: 1px solid #e1f0fa;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 100;
+            max-width: 400px;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.2);
+            z-index: 99;
+        }
+        
+        button {
+            background: #e1f0fa;
+            padding: 8px 15px;
+            border: 1px solid #c9e4f7;
+            border-radius: 3px;
+            cursor: pointer;
+            color: #2a6a9a;
+        }
+        button:hover {
+            background: #c9e4f7;
+        }
+        
+        h1, h2 {
+            color: #2a6a9a; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Portal</h1>
+    
+    <h2>FAQs</h2>
+    <div class="faq">
+        <button class="faq-question">How are mountains formed?</button>
+        <div class="faq-answer">
+          Mountains are primarily formed through tectonic forces or volcanism.
+        </div>
+    </div>
+    <div class="faq">
+        <button class="faq-question">What causes mountain colors at sunrise?</button>
+        <div class="faq-answer">
+            Rayleigh scattering bends sunlight through more atmosphere at dawn.
+        </div>
+    </div>
+    
+    <h2>Latest News</h2>
+    <div class="slider">
+        <div class="slide" style="display: block;">
+            <img src="img1.jpeg" alt="Slide 1">
+        </div>
+        <div class="slide">
+            <img src="img2.jpeg" alt="Slide 2">
+        </div>
+        <div class="slide">
+            <img src="img3.jpeg" alt="Slide 3">
+        </div>
+    </div>
+    
+    <button id="popup-btn">Announcement</button>
+    
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <h3>Mountain Safety Alert</h3>
+        <p>Due to recent weather conditions, trails above 3,000m are temporarily closed until further notice. Check with park rangers before hiking.</p>
+        <button id="close-btn">Close</button>
+    </div>
+    
+    <script>
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+        
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        function showSlide(n) {
+            slides.forEach(slide => slide.style.display = 'none');
+            slides[n].style.display = 'block';
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        
+        setInterval(nextSlide, 5000); // Change every 5 seconds
+        
+        const popupBtn = document.getElementById('popup-btn');
+        const popup = document.getElementById('popup');
+        const overlay = document.getElementById('overlay');
+        const closeBtn = document.getElementById('close-btn');
+        
+        popupBtn.addEventListener('click', () => {
+            popup.style.display = 'block';
+            overlay.style.display = 'block';
+        });
+        
+        closeBtn.addEventListener('click', () => {
+            popup.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

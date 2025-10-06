@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Return Book</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      padding: 30px;
+      margin: 0;
+    }
+
+    .return-form {
+      background-color: white;
+      max-width: 500px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 15px;
+      display: block;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      margin-top: 25px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      text-decoration: none;
+      color: #007bff;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="return-form">
+    <h2>Return Book Form</h2>
+    <form action="admin.html" method="get">
+
+      <label for="bookId">Book ID / Name:</label>
+      <input type="text" id="bookId" name="bookId" required>
+
+      <label for="memberId">Member ID / Name:</label>
+      <input type="text" id="memberId" name="memberId" required>
+
+      <label for="returnDate">Return Date:</label>
+      <input type="date" id="returnDate" name="returnDate" required>
+
+      <label for="condition">Book Condition:</label>
+      <select id="condition" name="condition" required>
+        <option value="">-- Select Condition --</option>
+        <option value="good">Good</option>
+        <option value="damaged">Damaged</option>
+        <option value="lost">Lost</option>
+      </select>
+
+      <label for="remarks">Remarks:</label>
+      <textarea id="remarks" name="remarks" rows="4" placeholder="Optional remarks..."></textarea>
+
+      <input type="submit" value="Return Book">
+    </form>
+
+    <a href="index.html">Back to Home</a>
+  </div>
+
+</body>
+</html>

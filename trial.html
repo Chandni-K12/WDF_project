@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student & Event Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #3b5ea2;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #3b5ea2;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .card p {
+            margin: 5px 0;
+            font-size: 0.9em;
+        }
+
+        .card strong {
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background-color: #333;
+            color: white;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Student & Event Dashboard</h1>
+    </header>
+
+    <main>
+        <section id="students-section">
+            <h2>Student Profiles</h2>
+            <div id="student-list" class="card-container">
+                </div>
+        </section>
+
+        <section id="events-section">
+            <h2>Upcoming Events</h2>
+            <div id="event-list" class="card-container">
+                </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const jsonData = {
+                "students": [
+                    {
+                        "id": "S001",
+                        "name": "James",
+                        "email": "james@example.com",
+                        "major": "Computer Science",
+                        "semester": 5
+                    },
+                    {
+                        "id": "S002",
+                        "name": "Jane",
+                        "email": "jane@example.com",
+                        "major": "Electrical Engineering",
+                        "semester": 1
+                    },
+                    {
+                        "id": "S003",
+                        "name": "Chandni",
+                        "email": "chandni@example.com",
+                        "major": "Mathematics",
+                        "semester": 3
+                    },
+                    {
+                        "id": "S004",
+                        "name": "Drashti",
+                        "email": "drashti@example.com",
+                        "major": "Physics",
+                        "semester": 1
+                    }
+                ],
+                "events": [
+                    {
+                        "name": "Tech Innovation Summit",
+                        "date": "15-09-2025",
+                        "time": "10:00 AM",
+                        "location": "Auditorium A",
+                    },
+                    {
+                        "name": "Career Fair 2025",
+                        "date": "01-10-2025",
+                        "time": "09:00 AM",
+                        "location": "Gymnasium",
+                    },
+                    {
+                        "name": "Guest Lecture: AI in Healthcare",
+                        "date": "20-10-2025",
+                        "time": "02:00 PM",
+                        "location": "Lecture Hall 3",
+                    },
+                    {
+                        "name": "Annual Sports Day",
+                        "date": "05-11-2025",
+                        "time": "08:30 AM",
+                        "location": "Sports Complex",
+                    }
+                ]
+            };
+            const studentListDiv = document.getElementById('student-list');
+            const eventListDiv = document.getElementById('event-list');
+
+           
+            function displayStudents(students) {
+                if (!students || students.length === 0) {
+                    studentListDiv.innerHTML = '<p>No student profiles available.</p>';
+                    return;
+                }
+                studentListDiv.innerHTML = ''; 
+
+                students.forEach(student => {
+                    const studentCard = document.createElement('div');
+                    studentCard.classList.add('card', 'student-card'); 
+
+                    studentCard.innerHTML = `
+                        <h3>${student.name}</h3>
+                        <p><strong>ID:</strong> ${student.id}</p>
+                        <p><strong>Email:</strong> ${student.email}</p>
+                        <p><strong>Major:</strong> ${student.major}</p>
+                        <p><strong>Year:</strong> ${student.year}</p>
+                    `;
+                    studentListDiv.appendChild(studentCard);
+                });
+            }
+
+            function displayEvents(events) {
+                if (!events || events.length === 0) {
+                    eventListDiv.innerHTML = '<p>No upcoming events.</p>';
+                    return;
+                }
+                eventListDiv.innerHTML = ''; 
+
+                events.forEach(event => {
+                    const eventCard = document.createElement('div');
+                    eventCard.classList.add('card', 'event-card'); 
+
+                    eventCard.innerHTML = `
+                        <h3>${event.name}</h3>
+                        <p><strong>Date:</strong> ${event.date}</p>
+                        <p><strong>Time:</strong> ${event.time}</p>
+                        <p><strong>Location:</strong> ${event.location}</p>
+                    `;
+                    eventListDiv.appendChild(eventCard);
+                });
+            }
+
+            if (jsonData.students) {
+                displayStudents(jsonData.students);
+            }
+            if (jsonData.events) {
+                displayEvents(jsonData.events);
+            }
+        });
+        
+    </script>
+</body>
+</html>

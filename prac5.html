@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student & Event JSON Parsing</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1, h2 {
+      color: #2c3e50;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 15px 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #3498db;
+    }
+
+    .card p {
+      margin: 6px 0;
+    }
+
+    pre {
+      background-color: #eaeaea;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Student Profiles & Event List</h1>
+
+  <h2>👩‍🎓 Students</h2>
+  <div id="students" class="container"></div>
+
+  <h2>🎉 Events</h2>
+  <div id="events" class="container"></div>
+
+  
+  <footer>Developed using JSON, Object Arrays, HTML, CSS, and JS</footer>
+
+  <script>
+    const jsonData = {
+      students: [
+        { name: "Kritika", rollNo: 10, course: "CSE" },
+        { name: "Priya", rollNo: 20, course: "IT" },
+        { name: "James", rollNo: 30, course: "ECE" }
+      ],
+      events: [
+        { eventName: "Coding Contest", date: "2025-08-15" },
+        { eventName: "Tech Talk", date: "2025-08-20" },
+        { eventName: "Hackathon", date: "2025-09-01" }
+      ]
+    };
+
+    function displayStudents(studentsArray) {
+      const container = document.getElementById("students");
+      studentsArray.forEach(student => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <h3>${student.name}</h3>
+          <p><strong>Roll No:</strong> ${student.rollNo}</p>
+          <p><strong>Course:</strong> ${student.course}</p>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function displayEvents(eventsArray) {
+      const container = document.getElementById("events");
+      eventsArray.forEach(event => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <h3>${event.eventName}</h3>
+          <p><strong>Date:</strong> ${event.date}</p>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    displayStudents(jsonData.students);
+    displayEvents(jsonData.events);
+
+    const jsonString = '{"name":"John","rollNo":25,"course":"AI"}';
+    const parsedObject = JSON.parse(jsonString);
+    document.getElementById("parsedOutput").textContent = JSON.stringify(parsedObject, null, 2);
+
+    const jsObject = {
+      eventName: "Robotics Expo",
+      date: "2025-09-10"
+    };
+    const stringified = JSON.stringify(jsObject, null, 2);
+    document.getElementById("stringifiedOutput").textContent = stringified;
+  </script>
+
+</body>
+</html>

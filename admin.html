@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Library Admin Control Panel</title>
+  <style>
+    :root {
+      --bg-light: #f4f4f4;
+      --bg-dark: #1e1e1e;
+      --text-light: #fff;
+      --text-dark: #111;
+      --card-light: #fff;
+      --card-dark: #2c2c2c;
+      --btn-color: #007bff;
+      --btn-hover: #0056b3;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    header {
+      background-color: #000;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .admin-panel {
+      background-color: var(--card-light);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 350px;
+      text-align: center;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .admin-panel h2 {
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    .admin-panel button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      font-size: 16px;
+      background-color: var(--btn-color);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .admin-panel button:hover {
+      background-color: var(--btn-hover);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: var(--bg-dark);
+        color: var(--text-light);
+      }
+
+      .admin-panel {
+        background-color: var(--card-dark);
+        color: var(--text-light);
+      }
+    }
+
+    @media (max-width: 400px) {
+      .admin-panel {
+        padding: 20px;
+      }
+
+      .admin-panel h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Library Admin Control Panel
+  </header>
+  <div class="container">
+    <div class="admin-panel">
+      <h2>Welcome, Admin</h2>
+      <button onclick="location.href='addbook.html'">Add New Book</button>
+      <button onclick="location.href='issuebook.html'">Issue Book</button>
+      <button onclick="location.href='returnbook.html'">Return Book</button>
+      <button onclick="location.href='main.html'">Home</button>
+    </div>
+  </div>
+</body>
+</html>
